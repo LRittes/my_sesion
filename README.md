@@ -1,16 +1,61 @@
-# my_sesion
+# My Sesion
+![GitHub](https://img.shields.io/github/license/LRittes/my_sesion)
 
-A new Flutter project.
+# Sobre
 
-## Getting Started
+**Projeto para auxiliar os treinos na academia.**
 
-This project is a starting point for a Flutter application.
+*exemplo: como realizar a execução do exercicio e quanta carga tem feito em cada em cada serie.*
 
-A few resources to get you started if this is your first Flutter project:
+# Layout
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src="assets/layouts/1.png" alt="isolated" width="150"/>
+<img src="assets/layouts/2.png" alt="isolated" width="150"/>
+<img src="assets/layouts/3.png" alt="isolated" width="150"/>
+<img src="assets/layouts/4.png" alt="isolated" width="150"/>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<img src="assets/layouts/5.png" alt="isolated" width="150"/>
+<img src="assets/layouts/6.png" alt="isolated" width="150"/>
+<img src="assets/layouts/7.png" alt="isolated" width="150"/>
+<img src="assets/layouts/8.png" alt="isolated" width="150"/>
+
+[Figma](https://www.figma.com/file/ekEy5JBoO15XJQ4ojHp6Wi/mySesion?node-id=0%3A1&t=FIK8g7ao98UpOPK6-1)
+
+# Tecnologias utilizadas
+## Front End
+- Flutter
+
+# Arquitetura
+*Em breve*
+
+# Como executar o projeto
+
+**Pré-requisitos:**
+
+    Flutter >= 3.3.10
+
+    Dart >= 2.18.6
+
+**No terminal**
+```bash
+    # clonar repositório
+    git clone https://github.com/LRittes/my_sesion.git
+
+    # entrar na pasta do projeto
+    cd my_sesion
+
+    # fazer download dos packages necessários
+    flutter pub get
+
+    # rodar o projeto
+    flutter run
+```
+
+# Autor
+
+**Leandro Ribeiro Rittes**
+
+[GitHub](https://github.com/lrittes)
+
+[Linkedin](https://www.linkedin.com/in/leandro-rittes/)
