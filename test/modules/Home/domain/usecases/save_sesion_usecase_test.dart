@@ -50,3 +50,7 @@ void main() {
     },
   );
 }
+
+// Na hora de testar um erro como tester cada tipo de erro por exemplo no msm try catch ter um erro generenico e um erro especifico 
+
+// Faz todo os usecases e depois faz os tests? 

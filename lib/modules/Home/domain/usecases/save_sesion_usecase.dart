@@ -10,8 +10,8 @@ class SaveSesionUseCase {
   Future<void> call(Sesion sesion) async {
     try {
       await _repository.saveSesion(sesion);
-    } on SaveSesionException catch (e) {
-      throw SaveSesionException(e.error, e.stackTrace);
+    } on SaveSesionException {
+      throw SaveSesionException("Erro ao salvar sesion!");
     } catch (e) {
       throw Exception(e.toString());
     }
