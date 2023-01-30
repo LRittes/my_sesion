@@ -1,9 +1,9 @@
 import 'package:my_sesion/modules/Home/domain/entities/sesion.dart';
-import 'package:my_sesion/modules/Home/domain/exceptions/SaveSesionException.dart';
-import 'package:my_sesion/modules/Home/domain/repositories/save_sesion_repository.dart';
+import 'package:my_sesion/modules/Home/domain/exceptions/save_sesion_exception.dart';
+import 'package:my_sesion/modules/Home/domain/repositories/sesion_repository.dart';
 
 class SaveSesionUseCase {
-  final SaveSesionRepository _repository;
+  final SesionRepository _repository;
 
   SaveSesionUseCase(this._repository);
 
