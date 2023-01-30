@@ -9,7 +9,7 @@ class GetSesionRepositoryMock extends Mock implements SesionRepository {}
 
 void main() {
   var repository = GetSesionRepositoryMock();
-  var getSesions = GetSesionUsecase(repository);
+  var getSesions = GetSesionUseCase(repository);
   var db = <Sesion>[];
   var sesion = Sesion(description: "description", data: "wednesday;25/01/2023");
   test('Should return a sesion list', () async {

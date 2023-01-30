@@ -4,4 +4,8 @@ abstract class SesionRepository {
   Future<List<Sesion>> getSesions();
 
   Future<void> saveSesion(Sesion sesion);
+
+  Future<void> deleteSesion(Sesion sesion);
+
+  Future<void> updateSesion(Sesion sesion);
 }
