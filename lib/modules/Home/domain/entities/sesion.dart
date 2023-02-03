@@ -1,6 +1,6 @@
 class Sesion {
   final String description;
-  final String data;
+  final DateTime data;
 
   Sesion({
     required this.description,
