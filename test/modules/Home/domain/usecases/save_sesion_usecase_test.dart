@@ -1,17 +1,17 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:my_sesion/modules/Home/domain/entities/sesion.dart';
-import 'package:my_sesion/modules/Home/domain/exceptions/SaveSesionException.dart';
-import 'package:my_sesion/modules/Home/domain/repositories/save_sesion_repository.dart';
+import 'package:my_sesion/modules/Home/domain/exceptions/save_sesion_exception.dart';
+import 'package:my_sesion/modules/Home/domain/repositories/sesion_repository.dart';
 import 'package:my_sesion/modules/Home/domain/usecases/save_sesion_usecase.dart';
 
-class SaveSesionRepositoryMock extends Mock implements SaveSesionRepository {}
+class SaveSesionRepositoryMock extends Mock implements SesionRepository {}
 
 void main() {
   var repository = SaveSesionRepositoryMock();
   var saveSesion = SaveSesionUseCase(repository);
 
-  var sesion = Sesion(description: "description", data: "wednesday;25/01/2023");
+  var sesion = Sesion(description: "description", data: DateTime.now());
   List<Sesion> db = [];
   test(
     'Should save sesion',
