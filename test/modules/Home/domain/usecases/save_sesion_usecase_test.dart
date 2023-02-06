@@ -11,7 +11,8 @@ void main() {
   var repository = SaveSesionRepositoryMock();
   var saveSesion = SaveSesionUseCase(repository);
 
-  var sesion = Sesion(description: "description", data: DateTime.now());
+  var sesion =
+      Sesion(description: "description", data: DateTime.now().toString());
   List<Sesion> db = [];
   test(
     'Should save sesion',
@@ -50,7 +51,3 @@ void main() {
     },
   );
 }
-
-// Na hora de testar um erro como tester cada tipo de erro por exemplo no msm try catch ter um erro generenico e um erro especifico 
-
-// Faz todo os usecases e depois faz os tests? 

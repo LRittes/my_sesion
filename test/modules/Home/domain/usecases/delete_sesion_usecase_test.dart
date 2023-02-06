@@ -11,7 +11,8 @@ void main() {
   var repository = DeleteSesionRepositoryMock();
   var deleteSesion = DeleteSesionUseCase(repository);
 
-  var sesion = Sesion(description: "description", data: DateTime.now());
+  var sesion =
+      Sesion(description: "description", data: DateTime.now().toString());
   List<Sesion> db = [sesion];
   test(
     'Should delete a sesion',
