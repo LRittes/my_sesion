@@ -21,6 +21,7 @@
 <img src="assets/layouts/7.png" alt="isolated" width="150"/>
 <img src="assets/layouts/8.png" alt="isolated" width="150"/>
 </div>
+
 [Figma](https://www.figma.com/file/ekEy5JBoO15XJQ4ojHp6Wi/mySesion?node-id=0%3A1&t=FIK8g7ao98UpOPK6-1)
 
 # Tecnologias utilizadas
