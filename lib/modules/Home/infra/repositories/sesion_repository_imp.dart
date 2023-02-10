@@ -23,7 +23,7 @@ class SesionRepositoryImp implements SesionRepository {
   @override
   Future<List<Sesion>> getSesions() async {
     try {
-      return (await _service.getSesions("path"))
+      return (await _service.getSesions())
           .map((sesion) => SesionDTO.fromMap(sesion))
           .toList();
     } on GetSesionException {
