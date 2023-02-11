@@ -11,7 +11,8 @@ void main() {
   var repository = UpdateSesionRepositoryMock();
   var updateSesion = UpdateSesionUseCase(repository);
 
-  var sesion = Sesion(description: "description", data: DateTime.now());
+  var sesion =
+      Sesion(description: "description", data: DateTime.now().toString());
   List<Sesion> db = [];
   test(
     'Should update sesion',
