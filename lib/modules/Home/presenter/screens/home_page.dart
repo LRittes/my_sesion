@@ -13,6 +13,18 @@ class _HomePageState extends State<HomePage> {
   final SesionStore _store = SesionStore();
 
   @override
+  void initState() {
+    super.initState();
+    _store.fetchSesions();
+  }
+
+  @override
+  void dispose() {
+    _store.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnimatedBuilder(
