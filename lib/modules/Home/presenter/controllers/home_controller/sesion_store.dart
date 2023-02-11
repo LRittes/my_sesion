@@ -4,7 +4,7 @@ import 'package:my_sesion/modules/Home/infra/repositories/sesion_repository_imp.
 import 'package:my_sesion/modules/Home/infra/services/service_client/dio_service_client.dart';
 import 'package:my_sesion/modules/Home/presenter/controllers/home_controller/sesion_state.dart';
 
-class HomeStore extends ChangeNotifier {
+class SesionStore extends ChangeNotifier {
   final GetSesionUseCase _getSesionUseCase =
       GetSesionUseCase(SesionRepositoryImp(DioServiceClient()));
 

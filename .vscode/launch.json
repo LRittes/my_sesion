@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "my_sesion",
+            "name": "debug mode",
             "request": "launch",
             "type": "dart",
             "args": [
@@ -13,7 +13,7 @@
             ],
         },
         {
-            "name": "my_sesion (release mode)",
+            "name": "release mode",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
