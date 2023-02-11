@@ -9,7 +9,7 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=url=http://localhost:8080",
+                "--dart-define=url=http://localhost:8080/sesions",
             ],
         },
         {
