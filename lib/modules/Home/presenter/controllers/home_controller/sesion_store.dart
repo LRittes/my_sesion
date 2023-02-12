@@ -1,12 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:my_sesion/modules/Home/domain/usecases/get_sesion_usecase.dart';
-import 'package:my_sesion/modules/Home/infra/repositories/sesion_repository_imp.dart';
-import 'package:my_sesion/modules/Home/infra/services/service_client/dio_service_client.dart';
 import 'package:my_sesion/modules/Home/presenter/controllers/home_controller/sesion_state.dart';
 
 class SesionStore extends ChangeNotifier {
-  final GetSesionUseCase _getSesionUseCase =
-      GetSesionUseCase(SesionRepositoryImp(DioServiceClient()));
+  final _getSesionUseCase = Modular.get<GetSesionUseCase>();
 
   SesionState state = SesionStateInitial();
 
