@@ -1,17 +1,26 @@
 import 'package:my_sesion/modules/Home/domain/entities/sesion.dart';
+import 'package:my_sesion/modules/Home/infra/adapters/DTOS/exercise_dto.dart';
 
 abstract class SesionDTO {
   static Map<String, dynamic> toMap(Sesion sesion) {
     return {
       'description': sesion.description,
-      'data': sesion.data.toString(),
+      'date': sesion.date.toString(),
+      'exercises': {
+        for (var e in sesion.exercises)
+          sesion.exercises.indexOf(e).toString(): ExerciseDTO.toMap(e)
+      },
     };
   }
 
   static Sesion fromMap(Map<String, dynamic> sesion) {
     return Sesion(
       description: sesion['description'],
-      data: DateTime.parse(sesion['data']).toString(),
+      date: sesion['date'],
+      exercises: (sesion['exercises'] as Map<String, dynamic>)
+          .values
+          .map((e) => ExerciseDTO.fromMap(e))
+          .toList(),
     );
   }
 }

@@ -11,8 +11,10 @@ void main() {
   var repository = GetSesionRepositoryMock();
   var getSesions = GetSesionUseCase(repository);
   var db = <Sesion>[];
-  var sesion =
-      Sesion(description: "description", data: DateTime.now().toString());
+  var sesion = Sesion(
+      description: "description",
+      date: DateTime.now().toString(),
+      exercises: []);
   test('Should return a sesion list', () async {
     when(() => repository.getSesions()).thenAnswer((i) async {
       db.add(sesion);

@@ -11,14 +11,17 @@ void main() {
   var repository = UpdateSesionRepositoryMock();
   var updateSesion = UpdateSesionUseCase(repository);
 
-  var sesion =
-      Sesion(description: "description", data: DateTime.now().toString());
+  var sesion = Sesion(
+      description: "description",
+      date: DateTime.now().toString(),
+      exercises: []);
   List<Sesion> db = [];
   test(
     'Should update sesion',
     () {
       db.add(sesion);
-      var sesion2 = Sesion(description: 'description2', data: sesion.data);
+      var sesion2 =
+          Sesion(description: 'description2', date: sesion.date, exercises: []);
 
       when(() => repository.updateSesion(sesion2)).thenAnswer((i) async {
         db.removeAt(0);
@@ -30,7 +33,7 @@ void main() {
       expect(db.length, equals(1));
       expect(db.first, isA<Sesion>());
       expect(db.first.description, equals("description2"));
-      expect(db.first.data, equals(sesion.data));
+      expect(db.first.date, equals(sesion.date));
       db.clear();
     },
   );

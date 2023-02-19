@@ -1,5 +1,5 @@
 abstract class DataSource {
-  Future<Map<String, dynamic>> getSesions();
+  Future<List<Map<String, dynamic>>> getSesions();
 
   Future<void> saveSesion(Map<String, dynamic> sesion);
 

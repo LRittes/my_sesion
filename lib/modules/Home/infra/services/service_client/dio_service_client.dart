@@ -6,7 +6,8 @@ class DioServiceClient implements ServiceClient {
   @override
   Future<void> deleteSesion(Map<String, dynamic> sesion) async {
     try {
-      await dio.delete(const String.fromEnvironment("url"), data: sesion);
+      await dio
+          .delete("${const String.fromEnvironment("url")}/${sesion['data']}");
     } catch (e) {
       throw Exception(e.toString());
     }
