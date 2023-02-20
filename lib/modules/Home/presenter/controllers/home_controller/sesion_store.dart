@@ -29,6 +29,7 @@ class SesionStore extends ChangeNotifier {
       _emit(SesionStateSucess(list));
     } catch (e) {
       _emit(SesionStateFailure([]));
+      print(e.toString());
     }
   }
 

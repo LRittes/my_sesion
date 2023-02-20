@@ -23,7 +23,7 @@ class LocalApiDataSource extends DataSource {
     try {
       return await _service.getSesions();
     } on GetSesionException {
-      throw GetSesionException("$runtimeType: Erro ao pegar as sesions!");
+      throw GetSesionException("Erro ao pegar as sesions!");
     } catch (e) {
       throw Exception(e.toString());
     }

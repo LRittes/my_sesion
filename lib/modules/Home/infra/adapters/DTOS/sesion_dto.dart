@@ -17,8 +17,7 @@ abstract class SesionDTO {
     return Sesion(
       description: sesion['description'],
       date: sesion['date'],
-      exercises: (sesion['exercises'] as Map<String, dynamic>)
-          .values
+      exercises: (sesion['exercises'] as List)
           .map((e) => ExerciseDTO.fromMap(e))
           .toList(),
     );

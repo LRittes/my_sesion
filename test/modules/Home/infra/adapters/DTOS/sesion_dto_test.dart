@@ -11,7 +11,7 @@ void main() {
         description: 'description',
         reps: 1,
         sets: 2,
-        weightPerSet: {'1': 9, '2': 3},
+        weightPerSet: [9, 3],
         image: null,
         video: null,
       )
@@ -28,16 +28,16 @@ void main() {
     var map = {
       'description': 'description',
       'date': date,
-      'exercises': {
-        '0': {
+      'exercises': [
+        {
           'description': 'description1',
           'sets': '1',
           'reps': '1',
-          'weightPerSet': {'1': 2},
+          'weightPerSet': [2],
           'video': null,
           'image': null,
         }
-      }
+      ]
     };
     var sesion = SesionDTO.fromMap(map);
     expect(sesion.description, equals('description'));
@@ -46,3 +46,6 @@ void main() {
     expect(sesion.exercises[0].description, equals('description1'));
   });
 }
+/*
+{"description":"description2","date":"2023-02-19 22:38:44.911","exercises":{"0":{"description":"description2","sets":"2","reps":"2","weightPerSet":{"0":1,"1":3},"video":null,"image":null}}}
+ */

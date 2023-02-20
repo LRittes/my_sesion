@@ -14,6 +14,7 @@ class HomeModule extends Module {
   List<Bind<Object>> get binds => [
         Bind.factory<ServiceClient>((i) => DioServiceClient()),
         Bind.factory<DataSource>((i) => LocalApiDataSource(i())),
+        // Bind.factory<DataSource>((i) => FirebaseDataSource()),
         Bind.factory<SesionRepository>((i) => SesionRepositoryImp(i())),
         Bind.lazySingleton((i) => GetSesionUseCase(i())),
         Bind.lazySingleton((i) => DeleteSesionUseCase(i()))

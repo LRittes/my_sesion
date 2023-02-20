@@ -27,7 +27,7 @@ class SesionRepositoryImp implements SesionRepository {
           .map((sesion) => SesionDTO.fromMap(sesion))
           .toList();
     } on GetSesionException {
-      throw GetSesionException("$runtimeType: Erro ao pegar as sesions!");
+      throw GetSesionException("Erro ao pegar as sesions!");
     } catch (e) {
       throw Exception(e.toString());
     }

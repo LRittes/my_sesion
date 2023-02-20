@@ -8,7 +8,7 @@ void main() {
       description: 'description',
       reps: 1,
       sets: 2,
-      weightPerSet: {'1': 9, '2': 3},
+      weightPerSet: [9, 3],
       image: null,
       video: null,
     );
@@ -16,8 +16,8 @@ void main() {
     expect(map['description'], equals("description"));
     expect(map['reps'], equals('1'));
     expect(map['sets'], equals('2'));
-    expect(map['weightPerSet']['1'], equals(9));
-    expect(map['weightPerSet']['2'], equals(3));
+    expect(map['weightPerSet'][0], equals(9));
+    expect(map['weightPerSet'][1], equals(3));
   });
 
   test('Should return a exercise from a map', () {
@@ -25,7 +25,7 @@ void main() {
       'description': 'description',
       'sets': '1',
       'reps': '1',
-      'weightPerSet': {'1': 2},
+      'weightPerSet': [2],
       'video': null,
       'image': null,
     };
@@ -33,6 +33,6 @@ void main() {
     expect(exercise.description, equals('description'));
     expect(exercise.sets, equals(1));
     expect(exercise.reps, equals(1));
-    expect(exercise.weightPerSet['1'], equals(2));
+    expect(exercise.weightPerSet[0], equals(2));
   });
 }

@@ -2,7 +2,7 @@ class Exercise {
   final String description;
   final int sets;
   final int reps;
-  final Map<String, int> weightPerSet;
+  final List<int> weightPerSet;
   String? video;
   String? image;
 

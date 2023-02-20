@@ -17,7 +17,9 @@ abstract class ExerciseDTO {
       description: exercise['description'],
       sets: int.parse(exercise['sets']),
       reps: int.parse(exercise['reps']),
-      weightPerSet: exercise['weightPerSet'],
+      weightPerSet: (exercise['weightPerSet'] as List)
+          .map((e) => int.parse(e.toString()))
+          .toList(),
       video: exercise['video'],
       image: exercise['image'],
     );
