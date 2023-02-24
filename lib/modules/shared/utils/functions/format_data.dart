@@ -1,10 +1,9 @@
-List<String> formatData(String value) {
-  var data = DateTime.parse(value);
-  String day = data.day > 9 ? data.day.toString() : "0${data.day}";
-  String month = data.month > 9 ? data.month.toString() : "0${data.month}";
-  int year = data.year;
+Map<String, String> formatData(DateTime date) {
+  String day = date.day > 9 ? date.day.toString() : "0${date.day}";
+  String month = date.month > 9 ? date.month.toString() : "0${date.month}";
+  int year = date.year;
   String weekDay = '';
-  switch (data.weekday) {
+  switch (date.weekday) {
     case DateTime.monday:
       weekDay = "Monday";
       break;
@@ -29,5 +28,9 @@ List<String> formatData(String value) {
     default:
   }
 
-  return [weekDay, "$day/$month/$year"];
+  return {
+    "weekDay": weekDay,
+    "date": "$day/$month/$year",
+    "dateToJson": "$day$month$year"
+  };
 }

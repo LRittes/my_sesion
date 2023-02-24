@@ -12,7 +12,7 @@ class LocalApiDataSource extends DataSource {
     try {
       await _service.deleteSesion(sesion);
     } on DeleteSesionException {
-      throw DeleteSesionException("$runtimeType: Erro ao deletar a sesion!");
+      throw DeleteSesionException("Erro ao deletar a sesion!");
     } catch (e) {
       throw Exception(e.toString());
     }
@@ -34,7 +34,7 @@ class LocalApiDataSource extends DataSource {
     try {
       await _service.saveSesion(sesion);
     } on SaveSesionException {
-      throw SaveSesionException("$runtimeType: Erro ao savar uma sesion!");
+      throw SaveSesionException("Erro ao savar uma sesion!");
     } catch (e) {
       throw Exception(e.toString());
     }
@@ -45,7 +45,7 @@ class LocalApiDataSource extends DataSource {
     try {
       await _service.updateSesion(sesion);
     } on UpdateSesionException {
-      throw UpdateSesionException("$runtimeType: Erro ao atualizar a sesion!");
+      throw UpdateSesionException("Erro ao atualizar a sesion!");
     } catch (e) {
       throw Exception(e.toString());
     }

@@ -56,9 +56,15 @@ class _HomePageState extends State<HomePage> {
                 }
 
                 if (state is SesionStateSucess && _store.todaySesion != null) {
-                  return TodaySesionCard(
-                      description: _store.todaySesion!.description,
-                      dates: formatData(_store.todaySesion!.date));
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, "/sesion",
+                          arguments: _store.todaySesion);
+                    },
+                    child: TodaySesionCard(
+                        description: _store.todaySesion!.description,
+                        dates: formatData(_store.todaySesion!.date)),
+                  );
                 }
                 return Container();
               },
@@ -117,8 +123,11 @@ class _HomePageState extends State<HomePage> {
                               ),
                               child: NextSesionCard(
                                 description: state.sesions[index].description,
-                                date: formatData(state.sesions[index].date)[1],
-                                onTap: () {},
+                                date: formatData(
+                                    state.sesions[index].date)["date"]!,
+                                onTap: () => Navigator.popAndPushNamed(
+                                    context, "/sesion",
+                                    arguments: state.sesions[index]),
                               ),
                             )),
                         separatorBuilder: ((context, index) => const SizedBox(

@@ -14,7 +14,7 @@ class SesionRepositoryImp implements SesionRepository {
     try {
       await _service.deleteSesion(SesionDTO.toMap(sesion));
     } on DeleteSesionException {
-      throw DeleteSesionException("$runtimeType: Erro ao deletar a sesion!");
+      throw DeleteSesionException("Erro ao deletar a sesion!");
     } catch (e) {
       throw Exception(e.toString());
     }

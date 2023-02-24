@@ -13,11 +13,22 @@ void main() {
   final client = ServiceClientMock();
   final dataSource = LocalApiDataSource(client);
   final repository = SesionRepositoryImp(dataSource);
-  var date = {
-    'description': "description",
-    'date': DateTime.now().toString(),
+  var date = DateTime.now();
+  var map = {
+    'description': 'description',
+    'date': date,
+    'exercises': [
+      {
+        'description': 'description1',
+        'sets': '1',
+        'reps': '1',
+        'weightPerSet': [2],
+        'video': null,
+        'image': null,
+      }
+    ]
   };
-  var db = [date];
+  var db = [map];
   group('Usecase get sesions:', (() {
     test('should return a sesion list', () async {
       when(() => client.getSesions()).thenAnswer((_) async => db);
@@ -41,28 +52,30 @@ void main() {
 
   group('Usecase delete sesion:', (() {
     test('should delete a sesion', () async {
-      when(() => client.deleteSesion(date)) //
-          .thenAnswer(
-        (i) async => db.removeWhere((e) => e['date'] == date['date']),
+      var db = [map];
+      when(() => client.deleteSesion(map)).thenAnswer(
+        (i) async {
+          db.removeAt(0);
+        },
       );
-      var sesion = SesionDTO.fromMap(date);
-      repository.deleteSesion(sesion);
+      var sesion = SesionDTO.fromMap(map);
+      await repository.deleteSesion(sesion);
       expect(db, isEmpty);
     });
 
     test('should throw a delete sesion exception', () async {
-      when(() => client.deleteSesion(date)) //
+      when(() => client.deleteSesion(map)) //
           .thenThrow(DeleteSesionException("Error ao deletar uma sesion"));
-      var sesion = SesionDTO.fromMap(date);
+      var sesion = SesionDTO.fromMap(map);
       expect(() async => repository.deleteSesion(sesion),
           throwsA(isA<DeleteSesionException>()));
     });
 
     test('should throw a generic exception from delete sesion reposiory',
         () async {
-      when(() => client.deleteSesion(date)) //
+      when(() => client.deleteSesion(map)) //
           .thenThrow(Exception("Error Generénico ao deletar uma sesion"));
-      var sesion = SesionDTO.fromMap(date);
+      var sesion = SesionDTO.fromMap(map);
       expect(() async => repository.deleteSesion(sesion),
           throwsA(isA<Exception>()));
     });

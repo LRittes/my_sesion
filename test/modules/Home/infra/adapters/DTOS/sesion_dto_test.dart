@@ -2,10 +2,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:my_sesion/modules/Home/domain/entities/exercise.dart';
 import 'package:my_sesion/modules/Home/domain/entities/sesion.dart';
 import 'package:my_sesion/modules/Home/infra/adapters/DTOS/sesion_dto.dart';
+import 'package:my_sesion/modules/shared/utils/functions/format_data.dart';
 
 void main() {
   test('Should return a map from a sesion', () {
-    var date = DateTime.now().toString();
+    var date = DateTime.now();
     var sesion = Sesion(description: 'description', date: date, exercises: [
       Exercise(
         description: 'description',
@@ -17,14 +18,16 @@ void main() {
       )
     ]);
     var map = SesionDTO.toMap(sesion);
-    expect(map['description'], equals("description"));
-    expect(map['date'], equals(date));
-    expect(map['exercises'], isA<Map>());
-    expect(map['exercises']['0']['description'], equals('description'));
+    expect(map[formatData(date)["dateToJson"]]['description'],
+        equals("description"));
+    expect(map[formatData(date)["dateToJson"]]['date'], equals(date));
+    expect(map[formatData(date)["dateToJson"]]['exercises'], isA<Map>());
+    expect(map[formatData(date)["dateToJson"]]['exercises']['0']['description'],
+        equals('description'));
   });
 
   test('Should return a sesion from a map', () {
-    var date = DateTime.now().toString();
+    var date = DateTime.now();
     var map = {
       'description': 'description',
       'date': date,

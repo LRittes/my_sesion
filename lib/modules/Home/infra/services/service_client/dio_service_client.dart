@@ -16,10 +16,16 @@ class DioServiceClient implements ServiceClient {
   @override
   Future<List<Map<String, dynamic>>> getSesions() async {
     try {
-      List result = (await dio.get(const String.fromEnvironment("url"))).data;
-      final list = result.map((item) => item.cast<String, String>()).toList();
-
-      return <Map<String, dynamic>>[...list];
+      List result = (await dio.get(
+          // const String.fromEnvironment("url")
+          "http://localhost:8080/sesions")).data;
+      final listToEachMap =
+          result.map((item) => Map<String, dynamic>.from(item)).toList();
+      final listEachMap = [];
+      for (Map<String, dynamic> map in listToEachMap) {
+        listEachMap.addAll(map.values);
+      }
+      return <Map<String, dynamic>>[...listEachMap];
     } catch (e) {
       throw Exception(e.toString());
     }

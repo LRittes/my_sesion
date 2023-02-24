@@ -8,6 +8,7 @@ import 'package:my_sesion/modules/Home/infra/repositories/sesion_repository_imp.
 import 'package:my_sesion/modules/Home/infra/services/service_client/dio_service_client.dart';
 import 'package:my_sesion/modules/Home/infra/services/service_client/service_client.dart';
 import 'package:my_sesion/modules/Home/presenter/screens/home_page.dart';
+import 'package:my_sesion/modules/Home/presenter/screens/sesion_page.dart';
 
 class HomeModule extends Module {
   @override
@@ -23,5 +24,6 @@ class HomeModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (context, args) => const HomePage()),
+        ChildRoute('/sesion', child: (context, args) => const SesionPage()),
       ];
 }

@@ -9,7 +9,7 @@ class TodaySesionCard extends StatelessWidget {
   }) : super(key: key);
 
   final String description;
-  final List<String> dates;
+  final Map<String, String> dates;
   final Function()? onTap;
 
   @override
@@ -37,7 +37,7 @@ class TodaySesionCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "${dates[0]}, ${dates[1]}",
+                  "${dates["weekDay"]}, ${dates["date"]}",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onPrimary,
                     fontSize: 12,

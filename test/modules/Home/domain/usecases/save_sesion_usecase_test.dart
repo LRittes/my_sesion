@@ -11,10 +11,8 @@ void main() {
   var repository = SaveSesionRepositoryMock();
   var saveSesion = SaveSesionUseCase(repository);
 
-  var sesion = Sesion(
-      description: "description",
-      date: DateTime.now().toString(),
-      exercises: []);
+  var sesion =
+      Sesion(description: "description", date: DateTime.now(), exercises: []);
   List<Sesion> db = [];
   test(
     'Should save sesion',
