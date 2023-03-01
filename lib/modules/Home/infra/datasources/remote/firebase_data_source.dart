@@ -21,7 +21,6 @@ class FirebaseDataSource implements DataSource {
     var jsonDecoded = json.decode(json.encode(hashMap)) as Map<String, dynamic>;
     var list = jsonDecoded.values.toList();
     var b = list.map((e) => Map<String, dynamic>.from(e)).toList();
-    print(b);
     return b;
   }
 

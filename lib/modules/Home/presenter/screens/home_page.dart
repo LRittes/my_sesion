@@ -29,117 +29,120 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(12, 48, 12, 96),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AnimatedBuilder(
-              animation: _store,
-              builder: (ctx, child) {
-                final state = _store.state;
-                if (state is SesionStateFailure) {
-                  return Center(
-                    child: Text(state.message),
-                  );
-                }
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 48, 12, 96),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AnimatedBuilder(
+                animation: _store,
+                builder: (ctx, child) {
+                  final state = _store.state;
+                  if (state is SesionStateFailure) {
+                    return Center(
+                      child: Text(state.message),
+                    );
+                  }
 
-                if (state is SesionStateLoading) {
-                  return Center(
-                      child: CircularProgressIndicator(
-                    color: Theme.of(context).colorScheme.secondary,
-                  ));
-                }
+                  if (state is SesionStateLoading) {
+                    return Center(
+                        child: CircularProgressIndicator(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ));
+                  }
 
-                if (state is SesionStateInitial) {
-                  return Container();
-                }
-
-                if (state is SesionStateSucess && _store.todaySesion != null) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, "/sesion",
-                          arguments: _store.todaySesion);
-                    },
-                    child: TodaySesionCard(
-                        description: _store.todaySesion!.description,
-                        dates: formatData(_store.todaySesion!.date)),
-                  );
-                }
-                return Container();
-              },
-            ),
-            SizedBox(
-              height: 300,
-              child: AnimatedBuilder(
-                  animation: _store,
-                  builder: ((context, child) {
-                    final state = _store.state;
-                    if (state is SesionStateFailure) {
-                      return Center(
-                        child: Text(state.message),
-                      );
-                    }
-
-                    if (state is SesionStateLoading) {
-                      return Center(
-                          child: CircularProgressIndicator(
-                        color: Theme.of(context).colorScheme.secondary,
-                      ));
-                    }
-
-                    if (state is SesionStateInitial) {
-                      return Container();
-                    }
-
-                    if (state is SesionStateSucess) {
-                      return ListView.separated(
-                        itemBuilder: ((context, index) => Slidable(
-                              startActionPane: ActionPane(
-                                motion: const StretchMotion(),
-                                children: [
-                                  SlidableAction(
-                                    onPressed: (ctx) {},
-                                    icon: Icons.update,
-                                    backgroundColor: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                ],
-                              ),
-                              endActionPane: ActionPane(
-                                motion: const StretchMotion(),
-                                children: [
-                                  SlidableAction(
-                                    onPressed: (ctx) => _store
-                                        .deleteSesion(state.sesions[index]),
-                                    icon: Icons.delete_forever,
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.error,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                ],
-                              ),
-                              child: NextSesionCard(
-                                description: state.sesions[index].description,
-                                date: formatData(
-                                    state.sesions[index].date)["date"]!,
-                                onTap: () => Navigator.popAndPushNamed(
-                                    context, "/sesion",
-                                    arguments: state.sesions[index]),
-                              ),
-                            )),
-                        separatorBuilder: ((context, index) => const SizedBox(
-                              height: 12,
-                            )),
-                        itemCount: state.sesions.length,
-                      );
-                    }
+                  if (state is SesionStateInitial) {
                     return Container();
-                  })),
-            ),
-          ],
+                  }
+
+                  if (state is SesionStateSucess &&
+                      _store.todaySesion != null) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, "/sesion",
+                            arguments: _store.todaySesion);
+                      },
+                      child: TodaySesionCard(
+                          description: _store.todaySesion!.description,
+                          dates: formatData(_store.todaySesion!.date)),
+                    );
+                  }
+                  return Container();
+                },
+              ),
+              SizedBox(
+                height: 300,
+                child: AnimatedBuilder(
+                    animation: _store,
+                    builder: ((context, child) {
+                      final state = _store.state;
+                      if (state is SesionStateFailure) {
+                        return Center(
+                          child: Text(state.message),
+                        );
+                      }
+
+                      if (state is SesionStateLoading) {
+                        return Center(
+                            child: CircularProgressIndicator(
+                          color: Theme.of(context).colorScheme.secondary,
+                        ));
+                      }
+
+                      if (state is SesionStateInitial) {
+                        return Container();
+                      }
+
+                      if (state is SesionStateSucess) {
+                        return ListView.separated(
+                          itemBuilder: ((context, index) => Slidable(
+                                startActionPane: ActionPane(
+                                  motion: const StretchMotion(),
+                                  children: [
+                                    SlidableAction(
+                                      onPressed: (ctx) {},
+                                      icon: Icons.update,
+                                      backgroundColor: Theme.of(context)
+                                          .colorScheme
+                                          .primaryContainer,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                  ],
+                                ),
+                                endActionPane: ActionPane(
+                                  motion: const StretchMotion(),
+                                  children: [
+                                    SlidableAction(
+                                      onPressed: (ctx) => _store
+                                          .deleteSesion(state.sesions[index]),
+                                      icon: Icons.delete_forever,
+                                      backgroundColor:
+                                          Theme.of(context).colorScheme.error,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                  ],
+                                ),
+                                child: NextSesionCard(
+                                  description: state.sesions[index].description,
+                                  date: formatData(
+                                      state.sesions[index].date)["date"]!,
+                                  onTap: () => Navigator.popAndPushNamed(
+                                      context, "/sesion",
+                                      arguments: state.sesions[index]),
+                                ),
+                              )),
+                          separatorBuilder: ((context, index) => const SizedBox(
+                                height: 12,
+                              )),
+                          itemCount: state.sesions.length,
+                        );
+                      }
+                      return Container();
+                    })),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(

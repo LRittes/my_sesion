@@ -14,13 +14,15 @@ class NextSesionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).colorScheme;
+    final sizeScreen = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: onTap,
       child: Center(
         child: LayoutBuilder(
           builder: ((context, constraint) {
             double maxWidth;
-            double sizeView = MediaQuery.of(context).size.width;
+            double sizeView = sizeScreen.width;
             if (sizeView > 500) {
               maxWidth = 500;
             } else {
@@ -29,7 +31,7 @@ class NextSesionCard extends StatelessWidget {
             return Container(
               width: maxWidth,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+                color: color.primary,
                 borderRadius: BorderRadius.circular(8),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -40,7 +42,7 @@ class NextSesionCard extends StatelessWidget {
                     description,
                     style: TextStyle(
                       fontSize: 20,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: color.onPrimary,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -48,7 +50,7 @@ class NextSesionCard extends StatelessWidget {
                     date,
                     style: TextStyle(
                       fontSize: 12,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: color.onPrimary,
                       fontWeight: FontWeight.w200,
                     ),
                   ),
