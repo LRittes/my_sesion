@@ -10,6 +10,7 @@ class SesionStore extends ChangeNotifier {
   final _deleteSesionUseCase = Modular.get<DeleteSesionUseCase>();
   Sesion? todaySesion;
   SesionState state = SesionStateInitial();
+  List<Sesion> sesions = [];
 
   SesionStore() {
     fetchSesions();
@@ -26,7 +27,8 @@ class SesionStore extends ChangeNotifier {
       var list = await _getSesionUseCase();
       todaySesion = list.first;
       _emit(SesionStateSucess(list));
-    } catch (e) {
+    } catch (e, stk) {
+      print("$e \n $stk");
       _emit(SesionStateFailure([]));
     }
   }

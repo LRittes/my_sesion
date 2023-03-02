@@ -1,6 +1,5 @@
 import 'package:birl/birl.dart';
 import 'package:flutter/material.dart';
-import 'package:my_sesion/modules/Home/domain/entities/exercise.dart';
 import 'package:my_sesion/modules/Home/domain/entities/sesion.dart';
 import 'package:my_sesion/modules/shared/utils/functions/format_data.dart';
 
@@ -11,22 +10,8 @@ class SesionPage extends StatefulWidget {
   State<SesionPage> createState() => _SesionPageState();
 }
 
-class _SesionPageState extends State<SesionPage>
-    with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  // Tween<IconData?> arrow =
-  //     Tween(begin: Icons.arrow_downward, end: Icons.arrow_upward);
+class _SesionPageState extends State<SesionPage> {
   IconData? arrow = Icons.arrow_downward;
-
-  @override
-  void initState() {
-    super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    // arrow.animate(animationController);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,15 +95,16 @@ class _SesionPageState extends State<SesionPage>
               ),
             ),
             Expanded(
-              child: Column(
-                children: [
-                  ExerciseTile(
-                    reps: sesion.exercises.first.reps,
-                    sets: sesion.exercises.first.sets,
-                    description: sesion.exercises.first.description,
-                    weightEachSet: sesion.exercises.first.weightPerSet,
-                  ),
-                ],
+              child: ListView.builder(
+                itemBuilder: (ctx, index) {
+                  return ExerciseTile(
+                    reps: sesion.exercises[index].reps,
+                    sets: sesion.exercises[index].sets,
+                    description: sesion.exercises[index].description,
+                    weightEachSet: sesion.exercises[index].weightPerSet,
+                  );
+                },
+                itemCount: sesion.exercises.length,
               ),
             )
           ],

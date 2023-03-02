@@ -19,9 +19,10 @@ class FirebaseDataSource implements DataSource {
     final hashMap = event.snapshot.value;
 
     var jsonDecoded = json.decode(json.encode(hashMap)) as Map<String, dynamic>;
-    var list = jsonDecoded.values.toList();
-    var b = list.map((e) => Map<String, dynamic>.from(e)).toList();
-    return b;
+    var listSesionDynamic = jsonDecoded.values.toList();
+    var listSesionMap =
+        listSesionDynamic.map((e) => Map<String, dynamic>.from(e)).toList();
+    return listSesionMap;
   }
 
   @override
