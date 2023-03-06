@@ -23,12 +23,12 @@ class SesionStore extends ChangeNotifier {
 
   Future<void> fetchSesions() async {
     _emit(SesionStateLoading());
+    await Future.delayed(const Duration(seconds: 3));
     try {
       var list = await _getSesionUseCase();
       todaySesion = list.first;
       _emit(SesionStateSucess(list));
-    } catch (e, stk) {
-      print("$e \n $stk");
+    } catch (e) {
       _emit(SesionStateFailure([]));
     }
   }

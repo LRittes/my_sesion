@@ -40,15 +40,15 @@ class TodaySesionCard extends StatelessWidget {
                   "${dates["weekDay"]}, ${dates["date"]}",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onPrimary,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w200,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   description,
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 30,
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),

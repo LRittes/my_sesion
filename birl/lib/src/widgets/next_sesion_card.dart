@@ -34,14 +34,14 @@ class NextSesionCard extends StatelessWidget {
                 color: color.primary,
                 borderRadius: BorderRadius.circular(8),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              padding: const EdgeInsets.all(12),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     description,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       color: color.onPrimary,
                       fontWeight: FontWeight.w500,
                     ),
@@ -51,7 +51,7 @@ class NextSesionCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 12,
                       color: color.onPrimary,
-                      fontWeight: FontWeight.w200,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                 ],

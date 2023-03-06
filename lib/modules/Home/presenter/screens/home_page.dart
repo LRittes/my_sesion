@@ -46,14 +46,11 @@ class _HomePageState extends State<HomePage> {
                   }
 
                   if (state is SesionStateLoading) {
-                    return Center(
-                        child: CircularProgressIndicator(
-                      color: Theme.of(context).colorScheme.secondary,
-                    ));
+                    return const LoadingCard();
                   }
 
                   if (state is SesionStateInitial) {
-                    return Container();
+                    return const LoadingCard();
                   }
 
                   if (state is SesionStateSucess &&
@@ -64,8 +61,9 @@ class _HomePageState extends State<HomePage> {
                             arguments: _store.todaySesion);
                       },
                       child: TodaySesionCard(
-                          description: _store.todaySesion!.description,
-                          dates: formatData(_store.todaySesion!.date)),
+                        description: _store.todaySesion!.description,
+                        dates: formatData(_store.todaySesion!.date),
+                      ),
                     );
                   }
                   return Container();
@@ -84,14 +82,16 @@ class _HomePageState extends State<HomePage> {
                       }
 
                       if (state is SesionStateLoading) {
-                        return Center(
-                            child: CircularProgressIndicator(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ));
+                        return ListView.separated(
+                          itemBuilder: (ctx, idx) => const LoadingCard(),
+                          separatorBuilder: (ctx, idx) =>
+                              const SizedBox(height: 8),
+                          itemCount: 5,
+                        );
                       }
 
                       if (state is SesionStateInitial) {
-                        return Container();
+                        return const LoadingCard();
                       }
 
                       if (state is SesionStateSucess) {
