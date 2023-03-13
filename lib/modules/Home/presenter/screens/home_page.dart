@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                           itemBuilder: (ctx, idx) => const LoadingCard(),
                           separatorBuilder: (ctx, idx) =>
                               const SizedBox(height: 8),
-                          itemCount: 5,
+                          itemCount: 3,
                         );
                       }
 

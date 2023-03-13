@@ -1,5 +1,6 @@
-import 'package:birl/src/widgets/skelton.dart';
 import 'package:flutter/material.dart';
+import 'package:birl/src/widgets/skelton.dart';
+import 'package:shimmer/shimmer.dart';
 
 class LoadingCard extends StatelessWidget {
   const LoadingCard({
@@ -16,14 +17,22 @@ class LoadingCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Skelton(
-              height: 20,
-              width: 120,
+          children: [
+            Shimmer.fromColors(
+              baseColor: Colors.black,
+              highlightColor: Colors.grey,
+              child: const Skelton(
+                height: 20,
+                width: 120,
+              ),
             ),
-            Skelton(
-              height: 50,
-              width: double.infinity,
+            Shimmer.fromColors(
+              baseColor: Colors.black,
+              highlightColor: Colors.grey,
+              child: const Skelton(
+                height: 50,
+                width: double.infinity,
+              ),
             ),
           ],
         ),
